@@ -26,15 +26,15 @@ class TA:
             norm_factor = 1
             if norm:
                 if norm_at:
-                    norm_factor = 1/self.TA[self.nearest(self.wave, norm_at),self.nearest(self.time, t)]
+                    norm_factor = 1/self.TA[nearest(self.wave, norm_at),nearest(self.time, t)]
                 else:
-                    norm_factor = 1/max(self.TA[:,self.nearest(self.time, t)])
+                    norm_factor = 1/max(self.TA[:,nearest(self.time, t)])
                 if norm_flip:
                         norm_factor = -norm_factor
             VIS_indx = np.where(self.wave < 800)[0]
-            plt.plot(self.wave[VIS_indx],self.TA[VIS_indx,self.nearest(self.time, t)]*norm_factor, label = str(t) + ' ps',c=c)
+            plt.plot(self.wave[VIS_indx],self.TA[VIS_indx,nearest(self.time, t)]*norm_factor, label = str(t) + ' ps',c=c)
             NIR_indx = np.where(self.wave > 800)[0]
-            plt.plot(self.wave[NIR_indx],self.TA[NIR_indx,self.nearest(self.time, t)]*norm_factor,c=c)
+            plt.plot(self.wave[NIR_indx],self.TA[NIR_indx,nearest(self.time, t)]*norm_factor,c=c)
         plt.hlines(0,min(self.wave),max(self.wave), lw=2)
         plt.xlim(min(self.wave),max(self.wave))
         plt.xlabel('Wavelength (nm)')
@@ -45,9 +45,9 @@ class TA:
             
     def plotdyn(self, w, log = True, norm = False, scale = 1, label = None):
         if norm:
-            dyn = self.TA[self.nearest(self.wave,w),:].T/max(np.abs(self.TA[self.nearest(self.wave,w),:].T))
+            dyn = self.TA[nearest(self.wave,w),:].T/max(np.abs(self.TA[nearest(self.wave,w),:].T))
         else:
-            dyn = self.TA[self.nearest(self.wave,w),:].T
+            dyn = self.TA[nearest(self.wave,w),:].T
         if label:
             plt.plot(self.time,dyn*scale, label = label)
         else:
