@@ -1,6 +1,6 @@
 import numpy as np
 
-def nearest(self,array, value): 
+def nearest(array, value): 
     array = np.asarray(array)
     idx = (np.abs(array - value)).argmin()
     return idx
