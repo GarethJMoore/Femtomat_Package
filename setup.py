@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='femtomat', 
-    version='0.0.5',
+    version='0.0.7',
     author='Gareth Moore',
     author_email='garethjohnmoore01@gmail.com',
     description='General analysis tools for Femtomat group of Natalie Banerji',
