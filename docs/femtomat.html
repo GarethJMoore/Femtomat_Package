@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Module documentation &mdash; Femtomat 0.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Femtomat
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-femtomat.TA">Transient Absorption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-femtomat.functions">Useful functions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Femtomat</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Module documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/femtomat.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-documentation">
+<h1>Module documentation<a class="headerlink" href="#module-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-femtomat.TA">
+<span id="transient-absorption"></span><h2>Transient Absorption<a class="headerlink" href="#module-femtomat.TA" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="femtomat.TA.TA">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">femtomat.TA.</span></code><code class="sig-name descname"><span class="pre">TA</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to create TA data object.</p>
+<dl class="py method">
+<dt id="femtomat.TA.TA.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wave</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upon initialization the <code class="docutils literal notranslate"><span class="pre">svd_reconstruction_E15</span></code> function is applied to the data to remove some noise and a Singular Value Decomposition is performed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TA</strong> – Takes in data matrix of TA data of size (time x wave) (without the timedelays and wavelengths).</p></li>
+<li><p><strong>time</strong> – An array of timedelays.</p></li>
+<li><p><strong>wave</strong> – An array of wavelengths.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Attributes TA Data</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>self.TA</p></li>
+<li><p>self.time</p></li>
+<li><p>self.wave</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Attributes SVD Data</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p>self.u</p></li>
+<li><p>self.s</p></li>
+<li><p>self.vh</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="femtomat.TA.TA.plot">
+<code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_at</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Wavelength</span> <span class="pre">(nm)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ΔA</span> <span class="pre">(mOD)'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots TA spectra at selected Timedelays. Options are given for choosing timedelays at which spectra are plotted, and if a normalization is to be done and where.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>times</strong> – A timedelays at which to plot spectra can be specified (in the form of a list), the <code class="docutils literal notranslate"><span class="pre">nearest</span></code> (found in <code class="docutils literal notranslate"><span class="pre">functions</span></code>) function will be applied to the time delays if exact timedelay does no exist. Default <code class="docutils literal notranslate"><span class="pre">[1500,1000,500,100,50,10,5,1,0.2]</span></code>.</p></li>
+<li><p><strong>norm</strong> – Boolean, if True the spectra will be normalized at their maximum as long as <code class="docutils literal notranslate"><span class="pre">norm_at=False</span></code>.</p></li>
+<li><p><strong>norm_at</strong> – Specifies the wavelength at which the spectra will be normalized if <code class="docutils literal notranslate"><span class="pre">norm</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p></li>
+<li><p><strong>norm_flip</strong> – Flips normalized spectra if normalization has left spectra in unwanted configuration.</p></li>
+<li><p><strong>title</strong> – Adds a title to the plot.</p></li>
+<li><p><strong>ylim</strong> – Specifies the y-axis (mOD) range over which the spectra are plotted.</p></li>
+<li><p><strong>xlabel</strong> – Labels the x-axis with default <span class="math notranslate nohighlight">\(Wavelength (nm)\)</span>.</p></li>
+<li><p><strong>ylabel</strong> – Labels the y axis with default <span class="math notranslate nohighlight">\({\Delta} A (mOD)\)</span>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="femtomat.TA.TA.plotMCR">
+<code class="sig-name descname"><span class="pre">plotMCR</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">guess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA.plotMCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the results of the MCR analysis with spectra and dynamics being plotted next to eachother with the option to just plot the initial guess for the MCR.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>guess</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the guess spectra and not the MCR results are plotted.</p></li>
+<li><p><strong>norm</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code> the dynamics results are all normalized such that the sum of components are equal to 1 at the earliest times.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="femtomat.TA.TA.plotdyn">
+<code class="sig-name descname"><span class="pre">plotdyn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA.plotdyn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots dynamics of TA spectra at a selected wavelength with options about scale and normalization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> – Wavelength at which dynamics are to be plotted (only one wavelength at a time). The <code class="docutils literal notranslate"><span class="pre">nearest</span></code> function will be applied if given wavelength does not exist.</p></li>
+<li><p><strong>log</strong> – The dynamics will be plotted with the x-axis in log scale. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>norm</strong> – Boolean, if True the dynamics will be normalized at their maximum.</p></li>
+<li><p><strong>scale</strong> – Dynamics will be scaled (multiplied by) specified scale.</p></li>
+<li><p><strong>label</strong> – Label can be specified (as a string).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="femtomat.TA.TA.plotsvd">
+<code class="sig-name descname"><span class="pre">plotsvd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA.plotsvd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots both the eigenvalues as well as a selected number of eigenvectors after an Singular Value Decomposition. The eigenvalues can give an idea of how many components are present in the TA data matrix
+and the eigenvectors can give an estimation of the shape of those components. These spectra are purely mathematical and not necessarily have a physical meaning in the TA spectra.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> – Number of eigenvectors to print (represents spectra for TA). Default = 3.</p></li>
+<li><p><strong>neg</strong> – If neg is true the eigenvectors are inverted (multiplied by -1).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="femtomat.TA.TA.setGuess">
+<code class="sig-name descname"><span class="pre">setGuess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MCR_guess</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA.setGuess" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function can initialise and store the spectral or concentration guess for input into the MCR analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>MCR_guess</strong> – Spectral or concentration guesses for MCR analysis in the form of a <span class="math notranslate nohighlight">\(NxM\)</span> matrix with <span class="math notranslate nohighlight">\(N\)</span> being number of components and <span class="math notranslate nohighlight">\(M\)</span> being length of spectra. The length of spectra must match with self.wave.</p>
+</dd>
+<dt class="field-even">Attribute</dt>
+<dd class="field-even"><p>self.MCR_guess</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="femtomat.TA.TA.setMCRRes">
+<code class="sig-name descname"><span class="pre">setMCRRes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MCR_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MCR_dyn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.TA.TA.setMCRRes" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function initializes the results of the MCT analysis as attributes of the TA object. This step needs to be done before the <code class="docutils literal notranslate"><span class="pre">plotMCR</span></code> function can be called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>MCR_spec</strong> – The spectral results of the MCR analysis, with the optimal spectra usually being used.</p></li>
+<li><p><strong>MCR_dyn</strong> – The dynamics/concentration results of the MCR analysis, with the concentrations spectra usually being used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Attribute</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>self.MCR_spec</p></li>
+<li><p>self.MCR_dyn</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-femtomat.functions">
+<span id="useful-functions"></span><h2>Useful functions<a class="headerlink" href="#module-femtomat.functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="femtomat.functions.k_opt">
+<code class="sig-prename descclassname"><span class="pre">femtomat.functions.</span></code><code class="sig-name descname"><span class="pre">k_opt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.functions.k_opt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function returning the optimal number of eigenvectors and eigenvalues for reconstructing the a data matrix (<span class="math notranslate nohighlight">\(k\)</span>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Data</strong> – Data matrix to find <span class="math notranslate nohighlight">\(k\)</span> for.</p>
+</dd>
+</dl>
+<p>:returns <span class="math notranslate nohighlight">\(k\)</span>: Optimal number of eigenvectors and eigenvalues for reconstructing the a data matrix.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="femtomat.functions.nearest">
+<code class="sig-prename descclassname"><span class="pre">femtomat.functions.</span></code><code class="sig-name descname"><span class="pre">nearest</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.functions.nearest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns index of element in array with value closest to the input value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> – Input array in which to find index.</p></li>
+<li><p><strong>value</strong> – Value to search for in array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return index</dt>
+<dd class="field-even"><p>Returns index of element in array with value closest to the input value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="femtomat.functions.rmse_special">
+<code class="sig-prename descclassname"><span class="pre">femtomat.functions.</span></code><code class="sig-name descname"><span class="pre">rmse_special</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.functions.rmse_special" title="Permalink to this definition">¶</a></dt>
+<dd><p>A  RSME calculator to calculate the Root Mean Square Error of the original data matrix and the reconstructed data matrix with a threshold of the <span class="math notranslate nohighlight">\(\sqrt{2/D}\)</span>. This is used to determine <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Data</strong> – Original data matrix.</p></li>
+<li><p><strong>rec</strong> – Reconstructed data matrix.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns rmse</dt>
+<dd class="field-even"><p>Returns either <span class="math notranslate nohighlight">\(\sqrt{2/D}\)</span> if the RMSE is greater than <span class="math notranslate nohighlight">\(\sqrt{2/D}\)</span> or the RMSE.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="femtomat.functions.svd_reconstruction_E15">
+<code class="sig-prename descclassname"><span class="pre">femtomat.functions.</span></code><code class="sig-name descname"><span class="pre">svd_reconstruction_E15</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#femtomat.functions.svd_reconstruction_E15" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function which reconstructs a data matrix from eigenvectors and eigenvalues (determined by SVD) by only using the top <span class="math notranslate nohighlight">\(k\)</span> eigenvalues and eigenvectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Data</strong> – Data matrix which is decomposed and reconstructed.</p></li>
+<li><p><strong>k</strong> – The number of eigenvectors and eigenvalues used to reconstruct the data matrix.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns rec</dt>
+<dd class="field-even"><p>Reconstructed data matrix.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Gareth Moore.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

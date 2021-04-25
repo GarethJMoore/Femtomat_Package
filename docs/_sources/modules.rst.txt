@@ -1,0 +1,8 @@
+Module Documentation
+====================
+
+This page contains all of ``femtomat``.
+
+TA 
+---
+.. automodule:: femtomat.TA
