@@ -1,0 +1,13 @@
+Introduction
+============
+
+The analysis of experimental data in the Femtomat group often requires as much time as the measurements themselves.
+The purpose of this :mod:`femtomat` package is to standardize and automate many of the repetitive processes. 
+The main purpose is to put the emphasis back onto the interpretation of the data rather than the analysis.
+
+The :mod:`femtomat` package has allows you to create objects from your experimental data. As the experiments result in data which has a predictable form and which
+undergoes predictable analysis or manipulation standard classes can be set up to accept and process the data.
+These objects then have useful attributes calculated which are are quickly available along with methods that can perform standard plotting and data manipulation.
+
+Using this package we can unclutter and speed up data analysis notebooks.
+

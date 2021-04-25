@@ -1,0 +1,25 @@
+.. Femtomat documentation master file, created by
+   sphinx-quickstart on Sun Apr 25 14:05:58 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Femtomat's documentation!
+====================================
+
+This documentation explains the functionality of the Femtomat package.
+
+.. toctree::
+   :maxdepth: 2
+   
+   introduction
+   installation
+   femtomat
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
