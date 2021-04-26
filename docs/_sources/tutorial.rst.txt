@@ -1,0 +1,80 @@
+Tutorial
+=========
+
+The tutorial below shows how the basic functions of :mod:`femtomat` can be used.
+
+Importing package
+------------------
+
+We start by importing :mod:`femtomat.TA` and :mod:`femtomat.functions`.
+
+::
+
+    from femtomat.TA import TA
+    from femtomat.functions import nearest 
+
+We now have ``TA`` and ``nearest`` available in out working environment. 
+
+Initializing objects
+--------------------
+
+The TA data can be loaded using :mod:`numpy` and then a new ``TA`` object can be defined, which we can name ``A1`` to be able to identify the specific data. 
+The TA data matrix is of size (:math:`t \times w` ) without the timedelays and wavelengths. The time and wave are single arrays containing the timedelays and wavelengths associated with the TA data.
+
+::
+
+    data_RAW = np.loadtxt('path/TA_data_RAW.txt')
+    time_RAW = np.loadtxt('path/time_RAW.txt')
+    wave_RAW = np.loadtxt('path/wave_RAW.txt')
+
+    A1 = TA(data_RAW, time_RAW, wave_RAW)
+
+We now have an object called ``A1`` who has all the attributes of a TA object. These attributes can be called specifically in order to work normally with the data. 
+
+For example, to access the timedelays associated to the ``A1`` TA object:
+
+::
+
+    >>> print(A1.time)
+    >>> array([2.000e-01, 2.500e-01, 3.000e-01, 3.500e-01, 4.000e-01, 4.500e-01,
+                ...
+                1.050e+03, 1.075e+03, 1.100e+03, 1.125e+03, 1.150e+03, 1.175e+03])
+
+Plotting
+---------
+
+The plotting functions of the :mod:`TA` module can be used to display spectra, dynamics, SVD components as wel as the results of MCR analysis.
+
+To simply plot the TA spectra of object ``A1``:
+
+::
+
+    A1.plot(title = 'A1')
+
+.. figure:: _static/TA_plot_1.png
+    :width: 500px
+
+To plot some normalized dynamics of the ``A1`` object at :math:`550 nm` and :math:`1000 nm`:
+
+::
+
+    plt.title('A1')
+    A1.plotdyn(550,  norm = True)
+    A1.plotdyn(1000, norm = True)
+
+.. figure:: _static/Dyn_plot_1.png
+    :width: 500px
+
+As we can see above, the normal functions of :mod:`matplotlib.pyplot` (imported as plt) are still available and can be used before and after the plotting functions.
+
+Lastly we can plot the results of the Singular Value Decomposition (SVD) which is automatically calculated when the TA object is initialized. 
+
+To plot SVD results showing all the eigenvalues and the top three eigenvectors:
+
+::
+
+    A1.plotSVD(num = 3)
+
+.. figure:: _static/SVD_plot_1.png
+    :width: 500px
+

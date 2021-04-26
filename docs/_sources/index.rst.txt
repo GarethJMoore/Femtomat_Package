@@ -13,6 +13,7 @@ This documentation explains the functionality of the Femtomat package.
    
    introduction
    installation
+   tutorial
    femtomat
 
 
