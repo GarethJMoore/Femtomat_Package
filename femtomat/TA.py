@@ -1,7 +1,202 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import ipywidgets as widgets
 
 from femtomat.functions import nearest, svd_reconstruction_E15, rmse_special, k_opt
+
+class TA_Pre:
+    '''
+    A class to perform TA data preprocessing before analysis. This includes data trimming, background subtraction and chirp correction.
+    '''
+    def __init__(self, Data):
+        '''
+        Upon initialization the ``check_w_orientation`` function is called, to ensure that the wavelengths are in numberical order. The raw data is then separated into TA data ``D`` and its corresponding wavelengths ``w`` and timedelays ``t``.
+        
+        :param Data: A numpy object in the form of the raw TA data without any preprocessing. i.e. ``TA_Pre(np.loadtxt('sample_800nm_5nJ.txt'))``
+        
+        :attributes TA Data: 
+                    * self.Data - Raw data is it was uploaded after orientation change.
+                    * self.D - Data after being preprocessed.  
+                    * self.w - Wavelengths corresponding to data.
+                    * self.t - Timedelays correcponding to data.
+        '''
+        self.Data = Data
+        self.check_w_orientation()
+        self.D = Data[1:,1:]
+        self.w = Data[1:,0]
+        self.t = Data[0,1:]
+        self.Chirp_UI()
+    
+    #update every time we change something
+    def update(self, wRange, tRange, ARange, neg_sub, y0, A, tau, x0):
+        '''
+        An update function which links the input widgets to the processing and plotting functions.
+        
+        :param wRange: Contains a tuple with the wavelength range at which the TA data is trimmed.
+        :param tRange: Contains a tuple with the timedelay range at wich the TA is displayed.
+        :param Arange: Contains a tuple with the amplitude range at wich the TA is displayed.
+        :param neg_sub: The timedelays below which the averaging for the background subtraction is taken.
+        :param Chirp: The four parameters used in the chirp correction proceedure.
+        
+        All the input parameters become attributes of the object and can be accessed at any time.
+        
+        :attributes Data trimming:
+                    * self.wRange - Wavelength range specified for 'clean' spectra.
+                    * self.neg_sub - Time below which the background is calculated.
+                    
+        :attributes Chirp correction:
+                    * self.tRange - Time range plotted to manually check goodness of chipr correction.
+                    * self.ARange - Amplitude range plotted to manually check goodness of chipr correction.
+                    * self.Chirp - Parameters of the sample specific exponential function used to correct for the chirp.
+        '''
+        self.wRange, self.tRange, self.ARange = wRange, tRange, ARange
+        self.neg_sub = neg_sub
+        self.Chirp = [y0,A,tau,x0]
+        self.cut_to_range()
+        self.chirp_correction()
+        self.plot_range()
+        self.plot_chirp()
+    
+    def check_w_orientation(self):
+        '''
+        A function which checks if the wavelengths are in numerical order and flips them (along with the data) if not.
+        '''
+        if (self.Data[2,0] > self.Data[-2,0]):
+            self.Data = np.flip(self.Data,axis = 0)
+            self.Data = np.vstack((self.Data[-1,:],self.Data[:-1,:]))
+    
+    #Cutting the data in the wavelength range
+    def cut_to_range(self):
+        '''
+        Function which takes the clean data wavelength range ``wRange`` as specified by the user with the widget and cuts the data and wavelengths accordingly. The function also takes the mean of spectra at times less than the widget specified ``neg_sub`` value as a background and subreacts it from all the data as a first data cleaning step. Negative time subtraction is most udefull for removing pump scattering which is present at all times. 
+        '''
+        indl = nearest(self.Data[1:,0],self.wRange[0])
+        indr = nearest(self.Data[1:,0],self.wRange[1])
+        self.D = self.Data[indl:indr,1:]
+        self.w = self.Data[indl:indr,0]
+        sub = np.mean(self.D[:,:nearest(self.t,self.neg_sub)], axis = 1)
+        self.D = (self.D.T-sub).T
+    
+    #Chirp correction function
+    def chirp_correction(self):
+        '''
+        Since the white light pulse is chirped, meaning that the blue side of the white light distribution arrives at the sample before the red side, the time zeros of the rise of the signal is different for each wavelength. This wavelength dependant time zero can be approximated by an exponential function (here ``func``). This exponential is then used to create a new set of timedelays for each wavelength is a way that the rise of the signal is at time zero. The time-shifted signals are then interpolated back onto the origional timedelays and the data matrix ``D``is redefined.
+        '''
+        def func(x,y0,A,tau,x0):
+            return y0 + A*np.exp(-(x-x0)/tau)
+        td = np.zeros(self.D.shape)
+        data_i = np.zeros(self.D.shape)
+        for i in range(len(self.w)):
+            for j in range(len(self.t)):
+                td[i,j] = self.t[j] - func(self.w[i],*self.Chirp)
+                data_i[i,:] = np.interp(self.t,td[i,:],self.D[i,:])
+        self.D = data_i
+        
+    #Plot the spectra in order to find the range
+    def plot_range(self):
+        '''
+        A function to plot all spectra in the TA data matrix such that the 'clean' part of the spectra can be defined by eye.
+        '''
+        plt.figure(figsize=(20,5))
+        plt.title('Full Data Range for Cutting')
+        plt.plot(self.w,self.D)
+        plt.hlines(0,self.wRange[0]-20,self.wRange[1]+20, color = 'k')
+        plt.vlines(self.wRange,self.ARange[0],self.ARange[1], color = 'k')
+        plt.ylim(self.ARange[0],self.ARange[1])
+        plt.xlim(self.wRange[0]-20,self.wRange[1]+20)
+        plt.ylabel('\u0394A (mOD)')
+        plt.xlabel('Wavelengths (nm)')
+        
+    #Plot the image and dynamics for chirp correction
+    def plot_chirp(self):
+        '''
+        The dynamics around time zero are plotted first as a contour plot and then as a selection of dynamics to that the goodness of the chirp correction can be assessed and adjusted by eye.
+        '''
+        plt.figure(figsize=(20,5))
+        plt.subplot(121)
+        X, Y = np.meshgrid(self.t, self.w)
+        plt.contourf(X,Y,self.D,levels=np.arange(self.ARange[0],self.ARange[1],0.05))
+        plt.xlim(self.tRange[0],self.tRange[1])
+        plt.vlines(0,self.wRange[0],self.wRange[1], color = 'k')
+        plt.ylim(self.wRange[0],self.wRange[1])
+        plt.ylabel('Wavelengths (nm)')
+        plt.xlabel('Timedelays (ps)')
+
+        plt.subplot(122)
+        for i in np.arange(self.wRange[0],self.wRange[1],50):
+            plt.plot(self.t,self.D[nearest(self.w,i),:])
+        plt.xlim(self.tRange[0],self.tRange[1])
+        plt.hlines((0),self.tRange[0],self.tRange[1], color = 'k')
+        plt.vlines((0,self.neg_sub),self.ARange[0],self.ARange[1], color = 'k')
+        plt.vlines((self.neg_sub),self.ARange[0],self.ARange[1], color = 'Blue')
+        plt.ylim(self.ARange[0],self.ARange[1])
+        plt.ylabel('\u0394A (mOD)')
+        plt.xlabel('Timedelays (ps)')
+        plt.show()
+    
+    def Chirp_UI(self):
+        '''
+        User interface for all the widgets used for data processing.
+        '''
+        #Widgets for cutting
+        title1 = widgets.HTML(value = '<h1>TA Data Preprocessing</h1><br>'+
+                             '<b>Set the wavelength range so that only clean data is left.</b><br>' +
+                            '<b>Then set the Timedelay and Amplitude Range in a way that the Chirp correction is easy to see.</b>')
+        size = '75%'
+        wRange = widgets.IntRangeSlider(description = 'Wavelength Range',
+                                        value = [self.w.min(),self.w.max()],
+                                        min=self.w.min(), max=self.w.max(), step=10,
+                                        style = {'description_width': 'initial'},
+                                        layout=widgets.Layout(width=size))
+        tRange = widgets.IntRangeSlider(description = 'Timedelay Range',
+                                        value = [self.t.min(),5],
+                                        min=self.t.min(), max=10, step=1,
+                                        style = {'description_width': 'initial'},
+                                        layout=widgets.Layout(width=size))
+        ARange = widgets.FloatRangeSlider(description = 'Amplitude Range',
+                                        value = [-0.85,1.01],
+                                        min=-3, max=3, step=0.1,
+                                        style = {'description_width': 'initial'},
+                                        layout=widgets.Layout(width=size))
+        neg_sub = widgets.FloatSlider(description = 'Subtract Negative from',
+                                        value = -1,
+                                        min=-3, max=3, step=0.1,
+                                        style = {'description_width': 'initial'},
+                                        layout=widgets.Layout(width=size))
+
+        #Widgets for chirp correction
+        title2 = widgets.HTML(value = '<b>Then choose the Chirp correction parameters</b>')
+        y0 = widgets.FloatSlider(description = r'\(y_0\)',
+                                        value = 1.07,
+                                        min=-2, max=5, step=0.01,
+                                        layout=widgets.Layout(width=size))
+        A = widgets.FloatSlider(description = r'\(A\)',
+                                        value = -0.423,
+                                        min=-10, max=10, step=0.05,
+                                        layout=widgets.Layout(width=size))
+        tau = widgets.FloatSlider(description = r'\(\tau\)',
+                                        value = 289.9,
+                                        min=-1000, max=3000, step=1,
+                                        layout=widgets.Layout(width=size))
+        x0 = widgets.FloatSlider(description = r'\(x_0\)',
+                                        value = 902,
+                                        min=-1000, max=3000, step=1,
+                                        layout=widgets.Layout(width=size))
+        #Cutting
+        Top_Box = widgets.VBox([wRange,tRange,ARange, neg_sub],layout=widgets.Layout(display='flex',align_items='flex-start'))
+        #Plotting and interacting with the update function
+        w = widgets.interactive_output(self.update,
+                                       {'wRange' : wRange, 'tRange' : tRange, 'ARange' : ARange, 'neg_sub' : neg_sub,
+                                       'y0' : y0, 'A' : A, 'tau' : tau, 'x0' : x0})
+        #Chirp
+        Bottom_Box = widgets.VBox([y0,A,tau,x0],layout=widgets.Layout(display='flex',align_items='flex-start'))
+
+        w.layout.height = '100%'
+        Top_Box.children[-1].layout.height = '100%'
+        Bottom_Box.children[-1].layout.height = '100%'
+        display(title1,Top_Box,w,title2,Bottom_Box)
+
+
 
 class TA:
     '''
