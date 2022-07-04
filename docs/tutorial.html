@@ -1,71 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Tutorial &mdash; Femtomat 0.0.7 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Tutorial &mdash; Femtomat 0.2.3 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Module documentation" href="femtomat.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Femtomat
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -73,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
@@ -97,85 +50,44 @@
 <li class="toctree-l1"><a class="reference internal" href="femtomat.html">Module documentation</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Femtomat</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Tutorial</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline"></a></h1>
 <p>The tutorial below shows how the basic functions of <code class="xref py py-mod docutils literal notranslate"><span class="pre">femtomat</span></code> can be used.</p>
-<div class="section" id="importing-package">
-<h2>Importing package<a class="headerlink" href="#importing-package" title="Permalink to this headline">¶</a></h2>
+<section id="importing-package">
+<h2>Importing package<a class="headerlink" href="#importing-package" title="Permalink to this headline"></a></h2>
 <p>We start by importing <a class="reference internal" href="femtomat.html#module-femtomat.TA" title="femtomat.TA"><code class="xref py py-mod docutils literal notranslate"><span class="pre">femtomat.TA</span></code></a> and <a class="reference internal" href="femtomat.html#module-femtomat.functions" title="femtomat.functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">femtomat.functions</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">femtomat.TA</span> <span class="kn">import</span> <span class="n">TA</span>
 <span class="kn">from</span> <span class="nn">femtomat.functions</span> <span class="kn">import</span> <span class="n">nearest</span>
 </pre></div>
 </div>
 <p>We now have <code class="docutils literal notranslate"><span class="pre">TA</span></code> and <code class="docutils literal notranslate"><span class="pre">nearest</span></code> available in out working environment.</p>
-</div>
-<div class="section" id="initializing-objects">
-<h2>Initializing objects<a class="headerlink" href="#initializing-objects" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="initializing-objects">
+<h2>Initializing objects<a class="headerlink" href="#initializing-objects" title="Permalink to this headline"></a></h2>
 <p>The TA data can be loaded using <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code> and then a new <code class="docutils literal notranslate"><span class="pre">TA</span></code> object can be defined, which we can name <code class="docutils literal notranslate"><span class="pre">A1</span></code> to be able to identify the specific data.
 The TA data matrix is of size (<span class="math notranslate nohighlight">\(t \times w\)</span> ) without the timedelays and wavelengths. The time and wave are single arrays containing the timedelays and wavelengths associated with the TA data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_RAW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;path/TA_data_RAW.txt&#39;</span><span class="p">)</span>
@@ -193,84 +105,67 @@ The TA data matrix is of size (<span class="math notranslate nohighlight">\(t \t
 <span class="go">            1.050e+03, 1.075e+03, 1.100e+03, 1.125e+03, 1.150e+03, 1.175e+03])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="plotting">
-<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline"></a></h2>
 <p>The plotting functions of the <code class="xref py py-mod docutils literal notranslate"><span class="pre">TA</span></code> module can be used to display spectra, dynamics, SVD components as wel as the results of MCR analysis.</p>
 <p>To simply plot the TA spectra of object <code class="docutils literal notranslate"><span class="pre">A1</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;A1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/TA_plot_1.png"><img alt="_images/TA_plot_1.png" src="_images/TA_plot_1.png" style="width: 500px;" /></a>
-</div>
+</figure>
 <p>To plot some normalized dynamics of the <code class="docutils literal notranslate"><span class="pre">A1</span></code> object at <span class="math notranslate nohighlight">\(550 nm\)</span> and <span class="math notranslate nohighlight">\(1000 nm\)</span>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A1&#39;</span><span class="p">)</span>
 <span class="n">A1</span><span class="o">.</span><span class="n">plotdyn</span><span class="p">(</span><span class="mi">550</span><span class="p">,</span>  <span class="n">norm</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">A1</span><span class="o">.</span><span class="n">plotdyn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/Dyn_plot_1.png"><img alt="_images/Dyn_plot_1.png" src="_images/Dyn_plot_1.png" style="width: 500px;" /></a>
-</div>
+</figure>
 <p>As we can see above, the normal functions of <code class="xref py py-mod docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> (imported as plt) are still available and can be used before and after the plotting functions.</p>
 <p>Lastly we can plot the results of the Singular Value Decomposition (SVD) which is automatically calculated when the TA object is initialized.</p>
 <p>To plot SVD results showing all the eigenvalues and the top three eigenvectors:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span><span class="o">.</span><span class="n">plotSVD</span><span class="p">(</span><span class="n">num</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="_images/SVD_plot_1.png"><img alt="_images/SVD_plot_1.png" src="_images/SVD_plot_1.png" style="width: 500px;" /></a>
-</div>
-</div>
-</div>
+</figure>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="femtomat.html" class="btn btn-neutral float-right" title="Module documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="femtomat.html" class="btn btn-neutral float-right" title="Module documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Gareth Moore.
-
-    </p>
+    <p>&#169; Copyright 2022, Gareth Moore.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
